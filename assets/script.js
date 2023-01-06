@@ -36,17 +36,7 @@ function getRandom(arr) {
 
 }
 
-
-
-
-
-
-
-
-var charTypes = [true, true, true, true];
-
-
-
+var charTypes = [false, false, true, false];
 
 function typeCheck(array) {
   var selectedTypes = [];
@@ -56,19 +46,24 @@ function typeCheck(array) {
       selectedTypes.push(i);
     }
   }
+  console.log(selectedTypes);
   return selectedTypes;
 }
 
 function generateString(length) {
-  var passwordString = [];
+  var passwordStringArr = [];
 
   for (var i = 0; i < length; i++) {
-    var charType = randomizer(typeCheck(charTypes).length);
+    var options = typeCheck(charTypes);
+    var charType = options[randomizer(options.length)];
+    console.log(charType);
     var character = returnCharacter(charType);
     console.log(character);
-    passwordString.push(character)
+    passwordStringArr.push(character)
   }
-  console.log(passwordString.join(""));
+  
+  passwordString= passwordStringArr.join("");
+  console.log(passwordString);
 
   return passwordString;
 }
@@ -85,13 +80,22 @@ function generateString(length) {
 // make an array that has indexes of types of characters 
 
 
+
 // Function to generate password with user input
 function generatePassword() {
-  charTypes[2] = document.getElementById('checkLower').checked;
-  console.log(document.getElementById('checkLower').value);
-  charTypes[3] = document.getElementById('checkUpper').checked;
-  console.log()
+  console.log(charTypes);
 
+  charTypes[0] = document.getElementById('checkSpecial').checked;
+  console.log(document.getElementById('checkSpecial').checked);
+  charTypes[1] = document.getElementById('checkNumbers').checked;
+  console.log(document.getElementById('checkNumbers').checked);
+  charTypes[2] = document.getElementById('checkLower').checked;
+  console.log(document.getElementById('checkLower').checked);
+  charTypes[3] = document.getElementById('checkUpper').checked;
+  console.log(document.getElementById('checkUpper').checked)
+
+
+  console.log(charTypes);
   return generateString(prompt("How many characters?"));
 }
 
