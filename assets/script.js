@@ -127,8 +127,8 @@ function findCommonElements3(arr1, arr2) {
 function generatePassword() {
   // var passwordLength = prompt("How many characters?");
   var passwordLength = document.getElementById('noOfChars').value;
-  
-  if (!Number.isInteger(passwordLength)) {
+  passwordLength = parseInt(passwordLength);
+  if (Number.isNaN(passwordLength)) {
     return 1;
   }
   else if ((passwordLength < 10) || (passwordLength > 64)) {
