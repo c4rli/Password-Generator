@@ -36,7 +36,7 @@ Application must:
 N/A
 
 ## Usage
-Deployed webpage can be found here:  [viscoplastique? capital management - Reports](https://c4rli.github.io/Password-Generator)
+Deployed webpage can be found here:  [c4rli's Password Generator](https://c4rli.github.io/Password-Generator)
 
 ## Credits
 Source code written by carli n. aka c4rli ++
