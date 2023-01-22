@@ -37,16 +37,6 @@ function getPasswordOptions() {
     charTypes.push(document.getElementById(Object.values(allowedCharacters)[i][0]).checked);
   }
 
-  // // charTypes[0] = document.getElementById('checkSpecial').checked;
-  // charTypes[0] = document.getElementById(Object.values(allowedCharacters)[0][0]).checked;
-  // console.log(document.getElementById('checkSpecial').checked);
-  // charTypes[1] = document.getElementById('checkNumbers').checked;
-  // console.log(document.getElementById('checkNumbers').checked);
-  // charTypes[2] = document.getElementById('checkLower').checked;
-  // console.log(document.getElementById('checkLower').checked);
-  // charTypes[3] = document.getElementById('checkUpper').checked;
-  // console.log(document.getElementById('checkUpper').checked);
-
   return charTypes.find(function (arrayBooleans) {
     return arrayBooleans === true;
   })
@@ -63,13 +53,7 @@ function typeCheck(array) {
   return selectedTypes;
 }
 
-function generatePasswordString(length) {
-
-}
-
 function getPasswordString(length) {
-
-
   do {
     var passwordStringArr = [];
     var charComparison = [];
@@ -82,8 +66,6 @@ function getPasswordString(length) {
       passwordStringArr.push(character)
     }
 
-
-
     for (var i = 0; i < Object.values(allowedCharacters).length; i++) {
       // console.log(array[1])
       console.log(Object.values(allowedCharacters)[i][0]);
@@ -93,41 +75,20 @@ function getPasswordString(length) {
       console.log(charComparison);
   } while (charComparison.join("") != charTypes.join(""));
 
-
-
-  // if (charComparison.join("") != charTypes.join("")) {
-  //   var passwordString = passwordStringArr.join("");
-  //   console.log(passwordString);
-  //   getPasswordString(length);
-  // }
-
-
   var passwordString = passwordStringArr.join("");
   console.log(passwordString);
 
   return passwordString;
 }
 
-function validatePassword(stringArray) {
-  var uppercase = false;
-  var lowercase = false;
-  var special = false;
-  var numbers = false;
-  // var something = find(function (x){
-  //   if (x ==  )
-  // })
-}
-
 function findCommonElements3(arr1, arr2) {
   return arr1.some(item => arr2.includes(item))
 }
 
-
 // Function to generate password with user input
 function generatePassword() {
   // var passwordLength = prompt("How many characters?");
-  var passwordLength = document.getElementById('noOfChars').value;
-  passwordLength = parseInt(passwordLength);
+  var passwordLength = parseInt(document.getElementById('noOfChars').value);
   if (Number.isNaN(passwordLength)) {
     return 1;
   }
@@ -148,15 +109,12 @@ function writePassword() {
   if (password === 1) {
     alert("Invalid value");
   }
-
   else if (password === 2) {
     alert("Incorrect length");
   }
   else if (password === 3) {
     alert("No characters selected.");
   }
-
-
   else {
     var passwordText = document.querySelector('#password');
     passwordText.value = password;
@@ -168,32 +126,3 @@ var generateBtn = document.querySelector('#generate');
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
-
-
-
-function myFunction()
-{
-    var x = document.getElementById("password"),
-        txt = x.innerHTML;
-    (myFunction = function() {
-        var newText = "";
-        for(var i=0, l=txt.length; i<l; i++)
-        {
-            newText += '<span style="color:#'+getColor()+'">'+txt.charAt(i)+'</span>';
-        }
-        x.innerHTML = newText;
-    })();
-}
-
-function getColor()
-{
-    var colorString="";
-    for(var i=0;i<6;i++)
-    {
-        var num = Math.floor(Math.random()*17);
-        hexNum = num.toString(16);
-        colorString += hexNum;
-    }
-    return colorString;
-}
